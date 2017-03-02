@@ -6,23 +6,6 @@
 typedef struct thpool_* threadpool;
 
 
-/**
- * @brief  Initialize threadpool
- *
- * Initializes a threadpool. This function will not return untill all
- * threads have initialized successfully.
- *
- * @example
- *
- *    ..
- *    threadpool thpool;                     //First we declare a threadpool
- *    thpool = thpool_init(4);               //then we initialize it to 4 threads
- *    ..
- *
- * @param  num_threads   number of threads to be created in the threadpool
- * @return threadpool    created threadpool on success,
- *                       NULL on error
- */
 threadpool thpool_init(int num_threads);
 
 return 0 on successs, -1 otherwise.
