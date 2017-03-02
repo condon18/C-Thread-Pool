@@ -1,17 +1,6 @@
-/**********************************
- * @author      Johan Hanssen Seferidis
- * License:     MIT
- *
- **********************************/
 
 #ifndef _THPOOL_
-#define _THPOOL_
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/* =================================== API ======================================= */
+#define _THPOOL
 
 
 typedef struct thpool_* threadpool;
