@@ -52,7 +52,7 @@ typedef struct thread{
 } thread;
 
 
-/* Threadpool */
+/* keep track of which threads we have created and which ones are in use so we don't waste time*/
 typedef struct thpool_{
 	thread**   threads;                  /* pointer to threads        */
 	volatile int num_threads_alive;      /* threads currently alive   */
