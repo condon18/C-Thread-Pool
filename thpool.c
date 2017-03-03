@@ -1,14 +1,4 @@
-/* ********************************
- * Author:       Johan Hanssen Seferidis
- * License:	     MIT
- * Description:  Library providing a threading pool where you can add
- *               work. For usage, check the thpool.h file or README.md
- *
- *//** @file thpool.h *//*
- *
- ********************************/
-
-#define _POSIX_C_SOURCE 200809L
+/(
 #include <unistd.h>
 #include <signal.h>
 #include <stdio.h>
@@ -16,23 +6,9 @@
 #include <pthread.h>
 #include <errno.h>
 #include <time.h>
-#if defined(__linux__)
-#include <sys/prctl.h>
-#endif
 
 #include "thpool.h"
 
-#ifdef THPOOL_DEBUG
-#define THPOOL_DEBUG 1
-#else
-#define THPOOL_DEBUG 0
-#endif
-
-#if !defined(DISABLE_PRINT) || defined(THPOOL_DEBUG)
-#define err(str) fprintf(stderr, str)
-#else
-#define err(str)
-#endif
 
 static volatile int threads_keepalive;
 static volatile int threads_on_hold;
@@ -68,7 +44,7 @@ typedef struct jobqueue{
 } jobqueue;
 
 
-/* Thread */
+/* incorporate all the rules functionality that we declared in the Heather*/
 typedef struct thread{
 	int       id;                        /* friendly id               */
 	pthread_t pthread;                   /* pointer to actual thread  */
