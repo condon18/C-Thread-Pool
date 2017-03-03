@@ -20,25 +20,8 @@ int thpool_add_work(threadpool, void (*function_p)(void*), void* arg_p);
  * Once the queue is empty and all work has completed, the calling thread
  * (probably the main program) will continue.
  *
- * Smart polling is used in wait. The polling is initially 0 - meaning that
- * there is virtually no polling at all. If after 1 seconds the threads
- * haven't finished, the polling interval starts growing exponentially
- * untill it reaches max_secs seconds. Then it jumps down to a maximum polling
- * interval assuming that heavy processing is being used in the threadpool.
  *
- * @example
- *
- *    ..
- *    threadpool thpool = thpool_init(4);
- *    ..
- *    // Add a bunch of work
- *    ..
- *    thpool_wait(thpool);
- *    puts("All added work has finished");
- *    ..
- *
- * @param threadpool     the threadpool to wait for
- * @return nothing
+
  */
 void thpool_wait(threadpool);
 
@@ -50,18 +33,7 @@ void thpool_wait(threadpool);
  * The threads return to their previous states once thpool_resume
  * is called.
  *
- * While the thread is being paused, new work can be added.
- *
- * @example
- *
- *    threadpool thpool = thpool_init(4);
- *    thpool_pause(thpool);
- *    ..
- *    // Add a bunch of work
- *    ..
- *    thpool_resume(thpool); // Let the threads start their magic
- *
- * @param threadpool    the threadpool where the threads should be paused
+ * @ threadpool    the threadpool where the threads should be paused
  * @return nothing
  */
 void thpool_pause(threadpool);
