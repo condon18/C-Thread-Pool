@@ -6,6 +6,7 @@
 #include <pthread.h>
 #include <cstdlib>
 #include <cmath>
+#include <time.h>
 
 using namespace std;
 
@@ -35,10 +36,10 @@ int main(int argc, char *argv[]) {
     if (!(mystream >> numPoints) || numPoints < 1 ) {
         cout << "invalid number of points, using 10 instead" << endl;
         numPoints = 10;
-    } else if (numPoints > 20000) {
-        cout << "invalid number of points, using 20,000 instead" << endl;
-        numPoints = 20000;
     }
+    
+    // start the clock
+    clock_t start = clock(), diff;
     
     // create and join the threads for point estimation
     pthread_t *threads = (pthread_t *) calloc(numPoints, sizeof(pthread_t));
@@ -56,6 +57,11 @@ int main(int argc, char *argv[]) {
     // print pi estimation
     float pi = 4 * in / (float) numPoints;
     cout << "Estimation of pi using " << numPoints << " points is " << pi << endl;
+    
+    // end the clock
+    diff = clock();
+    int msec = diff * 1000 / CLOCKS_PER_SEC;
+    cout << "Time of calculation: " << (float)(msec)/1000 << endl;
     
     return 1;
     

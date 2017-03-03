@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <queue>
+#include <time.h>
 
 using namespace std;
 
@@ -92,6 +93,9 @@ int main(int argc, char *argv[]) {
         numPoints = 10;
     }
     
+    // start the clock
+    clock_t start = clock(), diff;
+    
     /* ---=== adding in a thread pool ===--- */
     
     // fill the queue
@@ -123,6 +127,11 @@ int main(int argc, char *argv[]) {
     // print pi estimation
     float pi = 4 * in / (float) numPoints;
     cout << "Estimation of pi using " << numPoints << " points is " << pi << endl;
+    
+    // end the clock
+    diff = clock();
+    int msec = diff * 1000 / CLOCKS_PER_SEC;
+    cout << "Time of calculation: " << (float)(msec)/1000 << endl;
     
     return 0 ;
 }
