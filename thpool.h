@@ -40,7 +40,7 @@ void thpool_pause(threadpool);
 
 
 /**
- * @brief Unpauses all threads if they are paused
+ * @brief Unpauses all threads if they are paused here for you you will need this to wake up the Thrones after the pool is destroyed.
  *
  * 
  */
@@ -78,7 +78,7 @@ void thpool_destroy(threadpool);
 int thpool_num_threads_working(threadpool);
 
 
-#ifdef __cplusplus
+
 }
 #endif
 
