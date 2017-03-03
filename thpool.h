@@ -42,15 +42,7 @@ void thpool_pause(threadpool);
 /**
  * @brief Unpauses all threads if they are paused
  *
- * @example
- *    ..
- *    thpool_pause(thpool);
- *    sleep(10);              // Delay execution 10 seconds
- *    thpool_resume(thpool);
- *    ..
- *
- * @param threadpool     the threadpool where the threads should be unpaused
- * @return nothing
+ * 
  */
 void thpool_resume(threadpool);
 
@@ -60,19 +52,7 @@ void thpool_resume(threadpool);
  *
  * This will wait for the currently active threads to finish and then 'kill'
  * the whole threadpool to free up memory.
- *
- * @example
- * int main() {
- *    threadpool thpool1 = thpool_init(2);
- *    threadpool thpool2 = thpool_init(2);
- *    ..
- *    thpool_destroy(thpool1);
- *    ..
- *    return 0;
- * }
- *
- * @param threadpool     the threadpool to destroy
- * @return nothing
+
  */
 void thpool_destroy(threadpool);
 
