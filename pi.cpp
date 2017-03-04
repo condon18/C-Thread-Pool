@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
     // end the clock
     diff = clock();
     int msec = diff * 1000 / CLOCKS_PER_SEC;
-    cout << "Time of calculation: " << (float)(msec)/1000 << endl;
+    cout << "Time spent estimating: " << (float)(msec)/1000 << " seconds" << endl;
     
     return 1;
     
